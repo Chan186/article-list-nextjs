@@ -16,13 +16,21 @@ export default function IncrementalStaticRegeneration({ articles }) {
 }
 
 export const getStaticProps = async () => {
-  const res = await fetch(`https://jsonplaceholder.typicode.com/posts?_limit=6`);
-  const articles = await res.json();
+  const res = await fetch('https://jsonplaceholder.typicode.com/posts');
+  const allPosts = await res.json();
+
+  const getRandomPosts = (posts, numPosts) => {
+    const shuffled = posts.sort(() => 0.5 - Math.random()); // Shuffle array
+    return shuffled.slice(0, numPosts); 
+  };
+
+  const randomPosts = getRandomPosts(allPosts, 6);
 
   return {
     props: {
-      articles,
+      articles: randomPosts, 
     },
-    revalidate: 1, 
+    revalidate: 2, 
   };
-}
+};
+ 

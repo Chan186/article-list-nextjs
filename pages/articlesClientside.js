@@ -7,11 +7,17 @@ export default function ClientSideFetching() {
 
   useEffect(() => {
     const fetchArticles = async () => {
-      const res = await fetch(`https://jsonplaceholder.typicode.com/posts?_limit=6`);
-      const data = await res.json();
-      setArticles(data);
-    };
+      const res = await fetch('https://jsonplaceholder.typicode.com/posts');
+      const allPosts = await res.json();
 
+        const getRandomPosts = (posts, numPosts) => {
+        const shuffled = posts.sort(() => 0.5 - Math.random()); // Shuffle array
+        return shuffled.slice(0, numPosts); 
+        };
+  
+        const randomPosts = getRandomPosts(allPosts, 6);
+        setArticles(randomPosts)
+    };
     fetchArticles();
   }, []);
 
