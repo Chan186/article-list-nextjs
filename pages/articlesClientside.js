@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import ArticleList from '../components/ArticleList';
+import Timestamp from '../components/Timestamp';
 
 export default function ClientSideFetching() {
   const [articles, setArticles] = useState([]);
@@ -14,9 +15,14 @@ export default function ClientSideFetching() {
     fetchArticles();
   }, []);
 
+  const [isClient, setIsClient] = useState(false)
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
   return (
     <div>
       <ArticleList articles={articles} />
+      {isClient && <Timestamp />}
     </div>
-  );
+  )
 }

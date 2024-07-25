@@ -1,10 +1,17 @@
 
 import ArticleList from '../components/ArticleList'
+import Timestamp from '../components/Timestamp';
+import { useState, useEffect } from 'react'
 
 export default function Home({ articles }) {
+  const [isClient, setIsClient] = useState(false)
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
   return (
     <div>
       <ArticleList articles={articles} />
+      {isClient && <Timestamp />}
     </div>
   )
 }
