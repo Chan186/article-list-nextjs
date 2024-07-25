@@ -4,7 +4,7 @@ const Header = () => {
   return (
     <div>
       <h1 className={headerStyles.title}>
-        Article News
+        Article Lists
       </h1>
     </div>
   )
