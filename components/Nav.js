@@ -6,16 +6,16 @@ const Nav = () => {
     <nav className={navStyles.nav}>
       <ul>
         <li>
-          <Link href='/'>articlesStatic</Link>
+          <Link href='/'>getStaticProps</Link>
         </li>
         <li>
-          <Link href='/articlesServerside'>articlesServerside</Link>
+          <Link href='/articlesServerside'>getServerSideProps</Link>
         </li>
         <li>
-          <Link href='/articlesClientside'>articlesClientside</Link>
+          <Link href='/articlesClientside'>Client-Side-Fetching</Link>
         </li>
         <li>
-          <Link href='/articlesISR'>articlesISR</Link>
+          <Link href='/articlesISR'>Incremental-Static-Regenaration</Link>
         </li>
       </ul>
     </nav>
